@@ -6,11 +6,13 @@ const orderSchema = mongoose.Schema({
   lastname: { type: String, required: true },
   phonenumber: { type: String, required: true, },
   products: [{
-    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+    product_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
     quantity: { type: Number, default: 1 }
   }],
-  order_date: { type: Date, default: Date.now },
-  order_date_for: { type: Date }
+  timestamp: { type: Date, default: Date.now },
+  order_for_date_format: Date,
+  order_for_date_string: String,
+  total_price: Number,
 });
 
 module.exports = mongoose.model('Order', orderSchema);
