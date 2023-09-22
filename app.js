@@ -3,11 +3,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose')
+const info = require('./info')
 
 const orderRoutes = require('./api/routes/orders');
 const productRoutes = require("./api/routes/products");
 
-mongoose.connect('mongodb+srv://kanki66:K90V11clZXd5209q@naksdb.nxshiaq.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(info.constants.MONGODB_LINK)
 
 
 const app = express();
